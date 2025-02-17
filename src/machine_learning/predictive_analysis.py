@@ -6,6 +6,8 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 from src.data_management import load_pkl_file
 
+# These are function that we will use in our streamlit dashboard to predict the malaria cells
+# and perform any required changes to the images before prediction.
 
 def plot_predictions_probabilities(pred_proba, pred_class):
     """

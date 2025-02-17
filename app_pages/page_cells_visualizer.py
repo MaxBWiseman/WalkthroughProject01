@@ -17,6 +17,8 @@ def page_cells_visualizer_body():
     
     version = 'v1'
     if st.checkbox("Difference between average and variability image"):
+    # We have used st.checkbox to display the checkbox for different visualization operations.
+    # We are also using st.image to display the saved plots we generated during the model evaluation on the page.
       
       avg_parasitized = plt.imread(f"outputs/{version}/avg_var_Parasitized.png")
       avg_uninfected = plt.imread(f"outputs/{version}/avg_var_Uninfected.png")
@@ -49,7 +51,11 @@ def page_cells_visualizer_body():
                       nrows=8, ncols=3, figsize=(10,25))
       st.write("---")
 
-
+# One special case on this
+# page is image montage for which, if you remember, we have already developed the pseudo-code in the
+# data visualization section of the project. We have used that code here in this section and used
+# st.pyplot to display this figure instead of plot.show which we did in the jupyter notebooks
+# in this workspace.
 
 def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
   sns.set_style("white")
@@ -89,7 +95,7 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
     plt.tight_layout()
     
     st.pyplot(fig=fig)
-    # plt.show()
+    # we use the above streamlit function instead of = plt.show()
 
 
   else:
